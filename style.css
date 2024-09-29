@@ -1,0 +1,29 @@
+/* styles.css */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+
+
+section[data-testid="stSidebar"] {
+    width: 400px !important; 
+}
+
+
+body {
+    direction: ltr;
+    text-align: left;
+}
+
+.expander {
+    background-color: lightgray;
+    color: red;
+    font-size: 24px;
+}
+
+
+
+[data-testid="stHorizontalBlock"] > div {
+    border: 1px solid #CC0000; /* Light red border */
+    padding: 5px; /* Adds some padding inside the column */
+    /* margin: 2px; /* Adds some margin between columns */
+    border-radius: 2px; /* Rounded corners */
+}

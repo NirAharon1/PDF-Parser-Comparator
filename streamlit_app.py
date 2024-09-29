@@ -7,7 +7,9 @@ from parsers_by_page_number import *
 from dataclasses import dataclass, field
 from functools import cached_property
 from PyPDF2 import PdfReader
-
+from dotenv import load_dotenv
+load_dotenv()
+llama_cloud_api_key = os.getenv("LLAMA_CLOUD_API_KEY")
 
 st.set_page_config(page_title='PDF parsers compering', layout="wide")
 st.title("PDF parsers compering")

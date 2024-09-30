@@ -159,3 +159,7 @@ cython_debug/
 # Ignore all files in the following folders
 aspose_temp_images/*
 user_pdf/*
+
+# Exclude the folder itself from being ignored by Git
+!aspose_temp_images/
+!user_pdf/

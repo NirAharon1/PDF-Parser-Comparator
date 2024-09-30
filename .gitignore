@@ -161,5 +161,5 @@ aspose_temp_images/*
 user_pdf/*
 
 # Exclude the folder itself from being ignored by Git
-!aspose_temp_images/
-!user_pdf/
+!aspose_temp_images/.gitkeep
+!user_pdf/.gitkeep

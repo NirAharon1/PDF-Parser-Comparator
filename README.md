@@ -3,12 +3,14 @@
 
 A comparative analysis tool for PDF parsing libraries. This Streamlit app allows users to test different parsers on their own PDFs and view performance metrics in real-time
 
+<span style="font-size: 20px;">[pdf-extractor-comparator.streamlit.app](https://pdf-extractor-comparator.streamlit.app/)</span>
+
+
 Table of Contents
 -----------------
 
 * [Description](#description)
 * [Features](#features)
-* [Usage](#usage)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Contributing](#contributing)
@@ -21,6 +23,8 @@ The PDF-Parser-Comparator is a Streamlit app that allows users to compare the pe
 methods. With this tool, you can easily upload or select a PDF from the dropdown list and test different parsers
 on your own PDFs.
 
+[![](./PDF_Parser_Comparator_app_screenshot.jpg)](https://pdf-extractor-comparator.streamlit.app/)
+
 **Features**
 ------------
 
@@ -30,12 +34,6 @@ and llama_parser)
 * View performance metrics for each parser in real-time
 * Intuitive Streamlit interface for easy usage
 
-**Usage**
----------
-
-1. Clone this repository: `git clone https://github.com/your-username/pdf-parser-comparator.git`
-2. Install the required dependencies: `pip install -r requirements.txt`
-3. Run the app: `streamlit run main.py`
 
 **Requirements**
 ----------------
@@ -44,11 +42,12 @@ and llama_parser)
 * Streamlit 1.38
 * pypdf, pymupdf, pymupdf4llm, pytesseract, aspose, and llama_parser (requirements.txt)
 
-**Installation**
+**Local Installation**
 ---------------
 
-1. Clone this repository: `git clone https://github.com/your-username/pdf-parser-comparator.git`
+1. Clone this repository: `git clone https://github.com/NirAharon1/PDF-Parser-Comparator.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
+3. Run the app: `streamlit run main.py`
 
 **Contributing**
 ---------------

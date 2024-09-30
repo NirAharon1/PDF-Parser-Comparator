@@ -47,7 +47,7 @@ and llama_parser)
 
 1. Clone this repository: `git clone https://github.com/NirAharon1/PDF-Parser-Comparator.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
-3. Run the app: `streamlit run main.py`
+3. Run the app: `streamlit run streamlit_app.py`
 
 **Contributing**
 ---------------

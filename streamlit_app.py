@@ -11,7 +11,7 @@ from parsers_to_list import *
 from parsers_by_page_number import *
 from dataclasses import dataclass, field
 from functools import cached_property
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 from dotenv import load_dotenv
 load_dotenv()
 llama_cloud_api_key = os.getenv("LLAMA_CLOUD_API_KEY")

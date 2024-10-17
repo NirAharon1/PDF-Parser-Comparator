@@ -17,54 +17,42 @@ import parsers_by_page_number
 st.set_page_config(page_title='PDF parsers compering', layout="wide")
 st.title("PDF parsers compering")
 
-pdf_folder_path = "PDF_folder"
-user_pdf_folder_path = "user_pdf"
+PDF_FOLDER_PATH = "PDF_folder"
+USER_PDF_FOLDER_PATH = "user_pdf"
 box_labels = ["pypdf", "pymupdf", "pymupdf4llm", "pytesseract", "aspose", "llama_parser"]
 
 if 'initialized' not in st.session_state:
-    st.session_state.pdf_names = [] 
+    st.session_state.pdf_names = []
     st.session_state.pdf = {}
     st.session_state['initialized'] = True
 
     try:
-        PDF_folder = os.listdir(pdf_folder_path)
+        PDF_folder = os.listdir(PDF_FOLDER_PATH)
         for file_name in PDF_folder:
             # Check if the file is a PDF
             if file_name.endswith('.pdf'):
                 st.session_state.pdf_names.append(os.path.splitext(file_name)[0])
-                st.session_state.pdf[os.path.splitext(file_name)[0]] = pdf_folder_path
+                st.session_state.pdf[os.path.splitext(file_name)[0]] = PDF_FOLDER_PATH
 
     except FileNotFoundError:
-        st.error(f"Folder not found:")
+        st.error(f"Folder not found: {PDF_folder}")
 
 
-# Initialize a session state to track which box is selected
-if "selected_boxes" not in st.session_state:
-    st.session_state.selected_boxes = []  # Start with no selection
+session_defaults = {
+    'selected_boxes': [],
+    'page_number': 0,
+    'slider_max_value': 100,
+    'current_pdf': None,
+    'parser_status': True,
+    'pdf_instence': None,
+    'pdf_selection': None,
+    'uploaded_pdf_name': None,
+    'uploaded_pdf': None
+}
 
-if "page_number" not in st.session_state:
-    st.session_state.page_number = 0  
-
-if "slider_max_value" not in st.session_state:
-    st.session_state.slider_max_value = 100  
-
-if "current_pdf" not in st.session_state:
-    st.session_state.current_pdf = None 
-
-if "parser_status" not in st.session_state:
-    st.session_state.parser_status = True
-    
-if "pdf_instence" not in st.session_state:
-    st.session_state.pdf_instence = None
-
-if "pdf_selection" not in st.session_state:
-    st.session_state.pdf_selection = None
-
-if 'uploaded_pdf_name' not in st.session_state:
-    st.session_state['uploaded_pdf_name'] = None
-
-if 'uploaded_pdf' not in st.session_state:
-    st.session_state['uploaded_pdf'] = None
+for key, value in session_defaults.items():
+    if key not in st.session_state:
+        st.session_state[key] = value
 
 
 @st.cache_resource

@@ -1,3 +1,8 @@
+"""
+Streamlit app for a comparative analysis tool for PDF parsing libraries.
+Allows users to test different parsers on their own PDFs and view performance metrics in real-time
+"""
+
 import streamlit as st
 import os
 from PIL import Image

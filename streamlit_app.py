@@ -3,18 +3,16 @@ Streamlit app for a comparative analysis tool for PDF parsing libraries.
 Allows users to test different parsers on their own PDFs and view performance metrics in real-time
 """
 
-import streamlit as st
 import os
-from PIL import Image
-import pypdfium2 as pdfium
-from parsers_to_list import *
-from parsers_by_page_number import *
 from dataclasses import dataclass, field
-from functools import cached_property
+
 from pypdf import PdfReader
-from dotenv import load_dotenv
-load_dotenv()
-llama_cloud_api_key = os.getenv("LLAMA_CLOUD_API_KEY")
+import streamlit as st
+import pypdfium2 as pdfium
+import parsers_to_list
+
+import parsers_by_page_number
+
 
 st.set_page_config(page_title='PDF parsers compering', layout="wide")
 st.title("PDF parsers compering")

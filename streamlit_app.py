@@ -56,10 +56,11 @@ for key, value in session_defaults.items():
 
 
 @st.cache_resource
-def local_css(file_name):
-    with open(file_name) as f:
+def local_css(css_file_name: str) -> None:
+    with open(css_file_name, encoding='utf-8') as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-local_css("style.css") # Load custom CSS
+local_css("style.css")  # Load custom CSS
+
 
 # @st.cache_data
 def llama_parser_cache(path):

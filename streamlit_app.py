@@ -68,7 +68,7 @@ def llama_parser_cache(path: str):
 
 
 @dataclass
-class PDF:
+class Pdf:
     name: str 
     _folder: str
     path: str = field(init=False)
@@ -79,12 +79,12 @@ class PDF:
         try:
             if self.name.lower().endswith('.pdf'):
                 self.name = self.name[:-4]  # Remove '.pdf'
-            self.path = os.path.join(self._folder, self.name + '.pdf')
+            self.path = os.path.join(self._folder, f'{self.name}.pdf')
             reader = PdfReader(self.path)
             self.page_number = len(reader.pages)
   
         except Exception as e:
-            raise ValueError(f"Failed to read PDF at {self.path}: {e}")
+            raise ValueError(f"Failed to read PDF at {self.path}: {e}") from e
         
 
     @st.cache_data
@@ -159,7 +159,7 @@ with st.sidebar:
 
 
     if st.session_state.pdf_selection is not None:
-        st.session_state.pdf_instence = PDF(name=st.session_state.pdf_selection, _folder=st.session_state.pdf[st.session_state.pdf_selection])
+        st.session_state.pdf_instence = Pdf(name=st.session_state.pdf_selection, _folder=st.session_state.pdf[st.session_state.pdf_selection])
         st.session_state.slider_max_value = st.session_state.pdf_instence.page_number
         if st.session_state.slider_max_value >1:
             st.session_state.page_number = st.sidebar.slider("Select the page number",

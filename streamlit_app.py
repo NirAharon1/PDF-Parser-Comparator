@@ -113,8 +113,8 @@ class Pdf:
         return text, time_exe
 
 
-def change_image_preview(folder, pdf_name, page_number):
-    if st.session_state.pdf_selection != None:
+def change_image_preview(folder: str, pdf_name: str) ->None:
+    if st.session_state.pdf_selection is not None: 
         pdf = pdfium.PdfDocument(f"{os.path.join(folder,pdf_name)}.pdf")
         page = pdf[st.session_state.page_number]
         pil_image = page.render(scale=1).to_pil()

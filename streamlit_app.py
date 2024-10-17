@@ -63,9 +63,8 @@ local_css("style.css")  # Load custom CSS
 
 
 # @st.cache_data
-def llama_parser_cache(path):
-    document = llama_parse_to_list(path)
-    return document
+def llama_parser_cache(path: str):
+    return parsers_to_list.llama_parse_to_list(path)
 
 
 @dataclass
@@ -87,29 +86,30 @@ class PDF:
         except Exception as e:
             raise ValueError(f"Failed to read PDF at {self.path}: {e}")
         
+
     @st.cache_data
-    def pypdf_pdf_to_text(self, page_numer):
-        return pypdf_parse_page(self.path, page_numer)
-    
-    @st.cache_data
-    def pymupdf4llm_pdf_to_text(self, page_numer):
-        return pymupdf4llm_parse_page(self.path, page_numer)
+    def pypdf_pdf_to_text(self, page_numer: int) -> str:
+        return parsers_by_page_number.pypdf_parse_page(self.path, page_numer)
     
     @st.cache_data
     def pymupdf_pdf_to_text(self, page_numer):
-        return pypdf_parse_page(self.path, page_numer)
+        return parsers_by_page_number.pymupdf_parse_page(self.path, page_numer)
+    
+    @st.cache_data
+    def pymupdf4llm_pdf_to_text(self, page_numer):
+        return parsers_by_page_number.pymupdf4llm_parse_page(self.path, page_numer)
     
     @st.cache_data
     def pytesseract_pdf_to_text(self, page_numer):
-        return pytesseract_parse_page(self.path, page_numer+1)
+        return parsers_by_page_number.pytesseract_parse_page(self.path, page_numer+1)
     
     @st.cache_data
     def aspose_pdf_to_text(self, page_numer):
-        return aspose_parse_page(self.path, page_numer)
+        return parsers_by_page_number.aspose_parse_page(self.path, page_numer)
     
     def llama_parser_to_text(self, page_numer):
         doc, time_exe= llama_parser_cache(self.path)
-        text = doc[page_numer].text[0:300000]
+        text = doc[page_numer].text[:300000]
         return text, time_exe
 
 

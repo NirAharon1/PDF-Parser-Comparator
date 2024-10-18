@@ -139,7 +139,7 @@ def handle_pdf_upload():
             st.session_state['uploaded_pdf_name'] = None
 
 
-def callback():
+def update_parser_status():
     if st.session_state.pdf_selection is not None:
         st.session_state.parser_status = False
         st.session_state.page_number = 0
@@ -154,7 +154,7 @@ with st.sidebar:
         options=st.session_state.pdf_names,
         index=None,
         key='pdf_selection',
-        on_change=callback(),
+        on_change=update_parser_status(),
         )
 
 
@@ -168,10 +168,11 @@ with st.sidebar:
                     value=1,
                     step=1, 
                     key="page_number_ara", 
-                    on_change=callback(),
-                ) -1 
+                    on_change=update_parser_status(),
+                ) -1
                    
-        change_image_preview(st.session_state.pdf[st.session_state.pdf_selection], st.session_state.pdf_selection, st.session_state.page_number)
+        change_image_preview(st.session_state.pdf[st.session_state.pdf_selection], st.session_state.pdf_selection)
+
 
 
     for label in box_labels:

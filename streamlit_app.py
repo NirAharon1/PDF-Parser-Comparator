@@ -182,10 +182,10 @@ with st.sidebar:
             # Add the selected box to the list
             if label not in st.session_state.selected_boxes:
                 st.session_state.selected_boxes.append(label)
-        else:
-            # Remove the box if unchecked
-            if label in st.session_state.selected_boxes:
-                st.session_state.selected_boxes.remove(label)
+
+        # Remove the box if unchecked
+        elif label in st.session_state.selected_boxes: 
+            st.session_state.selected_boxes.remove(label)
     
 
     st.file_uploader("Upload your own PDF, use only PDF files",
@@ -194,7 +194,6 @@ with st.sidebar:
                     key='uploaded_file',
                     on_change=handle_pdf_upload,
                     )
-
 
 
 options = {

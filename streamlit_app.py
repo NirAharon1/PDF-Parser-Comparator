@@ -216,6 +216,7 @@ rtl_css = """
 </style>
 """
 
+
 # Inject the CSS into the app
 st.markdown(rtl_css, unsafe_allow_html=True)
 n_cols = len(st.session_state.selected_boxes)
@@ -236,7 +237,7 @@ if n_cols > 0 and st.session_state.pdf_selection is not None:
                         </div>
                         """,  
                     unsafe_allow_html=True
-                    )               
+                    )              
                 st.markdown(f'<div class="rtl-text">{return_text}</div>',unsafe_allow_html=True)
                 
 else:

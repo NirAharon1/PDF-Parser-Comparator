@@ -232,8 +232,8 @@ if n_cols > 0 and st.session_state.pdf_selection is not None:
     for idx, option in enumerate(st.session_state.selected_boxes):
         if hasattr(st.session_state.pdf_instence, options[option]):
             method = getattr(st.session_state.pdf_instence, options[option])
-            modified_df, execution_time = method(page_numer=st.session_state.page_number)
-            return_text = modified_df
+            return_text, execution_time = method(page_numer=st.session_state.page_number)
+            return_text = return_text.replace('\n', '<br>') #markdown doesn't recognize new line like '\n'
             with columns[idx]:
                 columns[idx].markdown(
                       f"""

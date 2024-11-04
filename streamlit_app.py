@@ -19,7 +19,8 @@ st.title("PDF parsers compering")
 
 PDF_FOLDER_PATH = "PDF_folder"
 USER_PDF_FOLDER_PATH = "user_pdf"
-box_labels = ["pypdf", "pymupdf", "pymupdf4llm", "pytesseract", "aspose", "llama_parser"]
+box_labels = ["pypdf", "pymupdf", "pymupdf4llm", "pytesseract", "aspose", "llama parser", "pdfplumber"]
+
 
 if 'initialized' not in st.session_state:
     st.session_state.pdf_names = []
@@ -111,6 +112,10 @@ class Pdf:
         doc, time_exe= llama_parser_cache(self.path)
         text = doc[page_numer].text[:300000]
         return text, time_exe
+    
+    @st.cache_data
+    def pdfplumber_pdf_to_text(self, page_numer):
+        return parsers_by_page_number.pdfplumber_parse_page(self.path, page_numer)
 
 
 def change_image_preview(folder: str, pdf_name: str) ->None:
@@ -202,7 +207,8 @@ options = {
     'pymupdf4llm': 'pymupdf4llm_pdf_to_text',
     'pytesseract': 'pytesseract_pdf_to_text',
     'aspose': 'aspose_pdf_to_text',
-    'llama_parser': 'llama_parser_to_text'
+    'llama parser': 'llama_parser_to_text',
+    'pdfplumber': 'pdfplumber_pdf_to_text' 
 }
 
 

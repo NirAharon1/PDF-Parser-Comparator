@@ -12,6 +12,7 @@ import pytesseract
 import pymupdf4llm
 import aspose.words as aw
 from decorators import time_execution
+import pdfplumber
 
 
 @time_execution
@@ -57,3 +58,16 @@ def aspose_parse_page(pdf_path: str, page_number: int) -> str:
         doc.save(stream, save_options)
         stream.seek(0)# Convert the stream to a string
         return stream.read().decode('utf-8')
+
+
+@time_execution
+def pdfplumber_parse_page(pdf_path: str, page_number: int) -> str:
+    with pdfplumber.open(pdf_path) as pdf:
+        # Check if the requested page number is within range
+        if page_number < 0 or page_number >= len(pdf.pages):
+            raise IndexError("Page number out of range")
+
+        # Extract text from the specified page and limit it to 230,000 characters
+        page = pdf.pages[page_number]
+        text = page.extract_text()[:230000] if page.extract_text() else ""
+    return text

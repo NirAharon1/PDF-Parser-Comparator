@@ -7,7 +7,7 @@ import pytesseract
 from llama_parse import LlamaParse
 from dotenv import load_dotenv
 from decorators import time_execution
-
+import pdfplumber
 
 load_dotenv()
 llama_cloud_api_key = os.getenv("LLAMA_CLOUD_API_KEY")
@@ -35,3 +35,9 @@ def pytesseract_parse_to_list(pdf_path: str, dpi:int=200) -> list[str]:
 def llama_parse_to_list(pdf_path: str) -> str:
     parser = LlamaParse(result_type="markdown", api_key=llama_cloud_api_key)
     return parser.load_data(pdf_path)
+
+
+@time_execution
+def pdfplumber_parse_to_list(pdf_path: str) -> list[str]:
+    with pdfplumber.open(pdf_path) as pdf:
+        return [page.extract_text()[:230000] if page.extract_text() else "" for page in pdf.pages]

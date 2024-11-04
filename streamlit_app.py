@@ -140,11 +140,13 @@ def handle_pdf_upload():
         if 'uploaded pdf' not in st.session_state.pdf_names:
             st.session_state.pdf_names.append('uploaded pdf')
 
-    else:
-        # Detect if the file was removed (by checking if it's no longer in the uploader)
-        if st.session_state['uploaded_pdf_name'] in st.session_state['pdf_names']:
-            st.session_state['pdf_names'].remove(st.session_state['uploaded_pdf_name'])
-            st.session_state['uploaded_pdf_name'] = None
+    # Detect if the file was removed (by checking if it's no longer in the uploader)  
+    elif st.session_state['uploaded_pdf_name'] in st.session_state['pdf_names']:
+        st.session_state['pdf_names'].remove(st.session_state['uploaded_pdf_name'])
+        st.session_state['uploaded_pdf_name'] = None
+        if st.session_state['pdf_selection'] == 'uploaded pdf':
+            st.session_state['pdf_selection'] = None
+            update_parser_status()
 
 
 

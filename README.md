@@ -6,7 +6,7 @@ A comparative analysis tool for PDF parsing libraries. This Streamlit app allows
 
  <!-- <iframe src="https://giphy.com/embed/dwQdjnyyrI4hHcv1G3" width="480" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/show-ossur-ilimb-dwQdjnyyrI4hHcv1G3">via GIPHY</a></p> -->
 
-<span style="font-size: 20px;"> <<iframe src="https://giphy.com/embed/dwQdjnyyrI4hHcv1G3" width="480" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/show-ossur-ilimb-dwQdjnyyrI4hHcv1G3">via GIPHY</a></p>>[pdf-extractor-comparator.streamlit.app](https://pdf-extractor-comparator.streamlit.app/)</span>
+<span style="font-size: 20px;"> <<iframe src="https://giphy.com/embed/dwQdjnyyrI4hHcv1G3" width="480" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/show-ossur-ilimb-dwQdjnyyrI4hHcv1G3">via GIPHY</a></p>[pdf-extractor-comparator.streamlit.app](https://pdf-extractor-comparator.streamlit.app/)</span>
 
 
 

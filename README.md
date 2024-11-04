@@ -3,7 +3,11 @@
 
 A comparative analysis tool for PDF parsing libraries. This Streamlit app allows users to test different parsers on their own PDFs and view performance metrics in real-time
 
-<span style="font-size: 20px;">[pdf-extractor-comparator.streamlit.app](https://pdf-extractor-comparator.streamlit.app/)</span>
+
+ <!-- <iframe src="https://giphy.com/embed/dwQdjnyyrI4hHcv1G3" width="480" height="271" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/stickers/show-ossur-ilimb-dwQdjnyyrI4hHcv1G3">via GIPHY</a></p> -->
+
+<span style="font-size: 20px;"> <img src="https://giphy.com/embed/dwQdjnyyrI4hHcv1G3"  width="30px">[pdf-extractor-comparator.streamlit.app](https://pdf-extractor-comparator.streamlit.app/)</span>
+
 
 
 Table of Contents
@@ -40,7 +44,7 @@ and llama_parser)
 
 * Python 3.11
 * Streamlit 1.38
-* pypdf, pymupdf, pymupdf4llm, pytesseract, aspose, and llama_parser (requirements.txt)
+* pypdf, pymupdf, pymupdf4llm, pytesseract, aspose, and llama_parser, pdfplumber (requirements.txt)
 
 **Local Installation**
 ---------------

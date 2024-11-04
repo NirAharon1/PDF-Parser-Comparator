@@ -129,8 +129,8 @@ def change_image_preview(folder: str, pdf_name: str) ->None:
 def handle_pdf_upload():
     if st.session_state['uploaded_file'] is not None:
         st.session_state['uploaded_pdf_name'] = 'uploaded pdf'
-        user_pdf_path = os.path.join(user_pdf_folder_path,"uploaded pdf.pdf")
-        st.session_state.pdf['uploaded pdf'] = user_pdf_folder_path
+        user_pdf_path = os.path.join(USER_PDF_FOLDER_PATH,"uploaded pdf.pdf")
+        st.session_state.pdf['uploaded pdf'] = USER_PDF_FOLDER_PATH
         with open(user_pdf_path, "wb") as f:
             f.write(st.session_state['uploaded_file'].getbuffer())
 

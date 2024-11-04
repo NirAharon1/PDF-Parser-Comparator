@@ -133,6 +133,9 @@ def handle_pdf_upload():
         st.session_state.pdf['uploaded pdf'] = USER_PDF_FOLDER_PATH
         with open(user_pdf_path, "wb") as f:
             f.write(st.session_state['uploaded_file'].getbuffer())
+        st.session_state.pdf_selection = "uploaded pdf"
+        update_parser_status()
+
 
         if 'uploaded pdf' not in st.session_state.pdf_names:
             st.session_state.pdf_names.append('uploaded pdf')
@@ -142,6 +145,7 @@ def handle_pdf_upload():
         if st.session_state['uploaded_pdf_name'] in st.session_state['pdf_names']:
             st.session_state['pdf_names'].remove(st.session_state['uploaded_pdf_name'])
             st.session_state['uploaded_pdf_name'] = None
+
 
 
 def update_parser_status():
